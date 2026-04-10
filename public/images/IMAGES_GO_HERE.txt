@@ -1,0 +1,17 @@
+Place your image files here before deploying.
+
+Required filenames:
+- ProRC-logo.png
+- hero.jpg
+- technique-correction.jpg
+- tough-training.jpg
+- team.jpg
+- team2.jpg
+- club.jpg
+- running-shoes.jpg
+- woody.png
+- dave.png
+- cookie.png
+- nip.png
+- leo.png
+- fer.png

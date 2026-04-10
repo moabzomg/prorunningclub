@@ -1,61 +1,6 @@
 # 長跑達人 Pro-Running Club
 
-React + Vite website for Pro-Running Club.
-
----
-
-## 🖼 Images Needed
-
-Place these files in `public/images/`:
-
-| File | Used in |
-|------|---------|
-| `ProRC-logo.png` | Navbar & Footer logo |
-| `hero.jpg` | Hero section background |
-| `technique-correction.jpg` | Pillar 1 - 改進跑步技術 |
-| `tough-training.jpg` | Pillar 2 - 課表強度適中 |
-| `team.jpg` | Pillar 3 - 訓練團隊合作 |
-| `team2.jpg` | Philosophy section |
-| `club.jpg` | About section |
-| `running-shoes.jpg` | Article card |
-| `woody.png` | Testimonial - Woody |
-| `dave.png` | Testimonial - David |
-| `cookie.png` | Testimonial - Nicole |
-| `nip.png` | Testimonial - 啊聶 |
-| `leo.png` | Testimonial - Leo |
-| `fer.png` | Testimonial - 怪獸 |
-
-> All original images can be found on the existing WordPress site at prorunningclub.com.
-
----
-
-## 🚀 Getting Started
-
-```bash
-npm install
-npm run dev
-```
-
-Open http://localhost:5173
-
----
-
-## ☁️ Deploy to Vercel
-
-### Option A — Vercel CLI
-```bash
-npm i -g vercel
-vercel
-```
-Follow the prompts. Vercel auto-detects Vite.
-
-### Option B — Vercel Dashboard
-1. Push this folder to a GitHub repo
-2. Go to https://vercel.com/new
-3. Import the repo → Vercel detects Vite automatically
-4. Click **Deploy** ✅
-
-No extra config needed — `vite build` outputs to `dist/` which Vercel handles by default.
+React + Vite website. Ready for Vercel deployment.
 
 ---
 
@@ -64,12 +9,77 @@ No extra config needed — `vite build` outputs to `dist/` which Vercel handles 
 ```
 pro-running-club/
 ├── public/
-│   └── images/          ← Put all images here
+│   └── images/               ← PUT ALL IMAGES HERE
+│       ├── ProRC-logo.png
+│       ├── hero.jpg
+│       ├── technique-correction.jpg
+│       ├── tough-training.jpg
+│       ├── team.jpg
+│       ├── team2.jpg
+│       ├── club.jpg
+│       ├── running-shoes.jpg
+│       ├── woody.png
+│       ├── dave.png
+│       ├── cookie.png
+│       ├── nip.png
+│       ├── leo.png
+│       └── fer.png
 ├── src/
-│   ├── App.jsx          ← Main component
-│   ├── App.css          ← All styles
-│   └── main.jsx         ← Entry point
+│   ├── App.jsx
+│   ├── App.css
+│   └── main.jsx
 ├── index.html
 ├── package.json
-└── vite.config.js
+├── vite.config.js
+└── vercel.json               ← fixes 404 on Vercel
+```
+
+---
+
+## 🖥 Local Development
+
+```bash
+npm install
+npm run dev
+# Opens at http://localhost:3000
+```
+
+---
+
+## ☁️ Deploy to Vercel (Step-by-step)
+
+### Method 1 — GitHub + Vercel Dashboard (Recommended)
+
+1. Create a new repo on GitHub
+2. Push this entire folder:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git remote add origin https://github.com/YOUR_USERNAME/pro-running-club.git
+   git push -u origin main
+   ```
+3. Go to https://vercel.com → New Project → Import your repo
+4. Vercel auto-detects Vite. Leave all settings as default.
+5. Click **Deploy** ✅
+
+### Method 2 — Vercel CLI
+
+```bash
+npm install -g vercel
+vercel
+# Follow prompts, accept all defaults
+```
+
+---
+
+## ✅ Why the 404 was happening
+
+The `vercel.json` file is now included — it tells Vercel to serve `index.html`
+for all routes, which is required for single-page React apps.
+
+```json
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
 ```
